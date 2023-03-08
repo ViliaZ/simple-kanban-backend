@@ -10,13 +10,13 @@ class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
-    def create(self, request):
-        task = Task.objects.create(title=self.request.POST.get('title', ""),
-                                   description=self.request.POST.get(
-                                       'description', ""),
-                                   urgency=self.request.POST.get('urgency', 1),
-                                   category=self.request.POST.get(
-                                       'category', ""),
-                                   assigned_user=self.request.user)
-        serialized_obj = serializers.serialize('json', [task, ])
-        return HttpResponse(serialized_obj, content_type='application/json')
+
+    # def create(self, request):
+    #     task = Task.objects.create(title=self.request.POST.get('title', ""),
+    #                                description=self.request.POST.get(
+    #                                    'description', ""),
+    #                                urgency=self.request.POST.get('urgency', 1),
+    #                                category=self.request.POST.get(
+    #                                    'category', ""))
+    #     serialized_obj = serializers.serialize('json', [task, ])
+    #     return HttpResponse(serialized_obj, content_type='application/json')
